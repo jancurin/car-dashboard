@@ -28,13 +28,10 @@ var Sidebar = (function() {
   };
 
   var suggestions = [
-    'Turn on the headlights',
-    'Shut off my lights',
-    'Play some music',
-    'What’s my ETA?',
-    'Show me what’s nearby',
-    'Find a gas station',
-    'Turn my radio up'
+    'Small vegetarian pizza with olives',
+    'Large pepperoni and beer',
+    'Regular margarita with cheese and peppers',
+    'Medium hawai, coke and chips'
   ];
 
 

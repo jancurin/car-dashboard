@@ -19,7 +19,16 @@
 /* global TooltipDialogs: true, Conversation: true, ConversationResponse: true, Sidebar: true, Animations: true, Common: true */
 
 (function() {
-  TooltipDialogs.init();
+  //TooltipDialogs.init();
+  
+  Api.initConversation(); // Load initial Watson greeting after overlays are gone.
+  // Hide the dark semi-transparent overlays
+  var darkOverlay = document.getElementById('dark-overlay');
+  var clearOverlay = document.getElementById('clear-overlay');
+  Common.addClass(darkOverlay, 'hide');
+  Common.addClass(clearOverlay, 'hide');
+  Conversation.focusInput();
+
   Conversation.init();
   ConversationResponse.init();
   Sidebar.init();
@@ -29,3 +38,4 @@
     document.body.style.visibility = 'visible';
   }, 50);
 }());
+

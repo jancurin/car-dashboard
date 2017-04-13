@@ -16,8 +16,8 @@
          WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
          See the License for the specific language governing permissions and
          limitations under the License.">
-    <meta name="description" content="Watson Conversation Service Car Dashboard Sample Application">
-    <title>Watson Conversation Service Car Dashboard Sample Application</title>
+    <meta name="description" content="Watson Conversation Service Pizza Sample Application">
+    <title>Watson Conversation Service Pizza Sample Application</title>
     <!-- build:css css/main.min.css -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/tooltip-dialogs.css">
@@ -33,25 +33,30 @@
 </head>
 
 <body>
-<form action="/action_page.php">
-<p>Pizza type: <input name="type" id="type" type="text" /><span style="color: #ff0000;"> *</span> <br />
-<br />Pizza size: <input name="size" id="size" type="text" /><span style="color: #ff0000;"> *</span> <br />
-<br />Additional toppings: <input name="toppings" id="toppings" type="text" /><br />
-<br />Extras:<br /><br /> <input name="extras" id="extras.beer" type="checkbox" value="beer" />beer&nbsp; 
-<input name="extras" id="extras.water" type="checkbox" value="water" />water&nbsp; 
-<input name="extras" id="extras.coke" type="checkbox" value="coke" />coke&nbsp; 
-<input name="extras" id="extras.chips" type="checkbox" value="chips" />chips&nbsp; 
-<br /> <br /> <span style="color: #ff0000;">* Mandatory fields</span></p>
-<p><br /> <input type="submit" value="Order" /></p>
-</form>
     <div id="dark-overlay" class="overlay"></div>
+    <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
+    <button id="help" class="tooltip-dialog-btn" onclick="Sidebar.toggle()">What can I ask?</button>
     <div id="clear-overlay" class="overlay"></div>
+		<div id="form">
+		<form action="thanks.html">
+			<p/>
+			<p/>
+			<p class="tab">Pizza type: <input name="type" id="type" type="text" /><span style="color: #ff0000;"> *</span> <br />
+			<br />Pizza size: <input name="size" id="size" type="text" /><span style="color: #ff0000;"> *</span> <br />
+			<br />Additional toppings: <input name="toppings" id="toppings" type="text" /><br />
+			<br />Extras:<br /><br /> <input name="extras" id="extras.beer" type="checkbox" value="beer" />beer&nbsp; 
+			<input name="extras" id="extras.water" type="checkbox" value="water" />water&nbsp; 
+			<input name="extras" id="extras.coke" type="checkbox" value="coke" />coke&nbsp; 
+			<input name="extras" id="extras.chips" type="checkbox" value="chips" />chips&nbsp; 
+			<br /> <br /> <span style="color: #ff0000;">* Mandatory fields</span></p>
+			<p class="tab"><br /> <input type="submit" value="Order" /></p>
+			</form>
+		</div>
     <!--The main car dashboard SVG-->
     <div id="svg_wrapper">
-        <div id="output-audio" class="audio-on" onclick="TTSModule.toggle()" value="ON"></div>
-        <button id="help" class="tooltip-dialog-btn" onclick="Sidebar.toggle()">What can I ask?</button>
         <div id="svg_size">
-            <svg id="svg_canvas" viewBox="0 0 1024 704" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
+            <!--<svg id="svg_canvas" style="display: none;" viewBox="0 0 1024 704" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>-->
+			<svg id="svg_canvas" style="display: none;" viewBox="0 0 1024 100" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
         </div>
         <div class="chatUi">
             <div id="chat-scroll-wrapper"><div id="chat-flow"></div></div>
@@ -70,7 +75,7 @@
             <div class="close-div" onclick="Sidebar.toggle()">
                 <img src="images/close-button.png" class="close" alt="close" />
             </div>
-            <p class="pre-bar">I’m trained on these topics:</p>
+            <p class="pre-bar">You can say:</p>
             <ul id="suggestion-list"></ul>
         </div>
     </div>
@@ -86,7 +91,7 @@
     <script src="js/common.js"></script>
     <script src="js/api.js"></script>
     <script src="js/sidebar.js"></script>
-    <script src="js/tooltip-dialogs.js"></script>
+    <!--<script src="js/tooltip-dialogs.js"></script>-->
     <script src="js/animations.js"></script>
     <script src="js/panel.js"></script>
     <script src="js/conversation.js"></script>

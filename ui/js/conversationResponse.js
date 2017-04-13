@@ -102,41 +102,55 @@ var ConversationResponse = (function () {
 
     let action = data.output.action;
 
-	if (data.context.size) {
-		document.getElementById("size").value = data.context.size;
-    }
-	if (data.context.type) {
-		document.getElementById("type").value = data.context.type;
-    }
-	if (data.context.toppings) {
-		document.getElementById("toppings").value = data.context.toppings;
-    }
-	if (data.context.extras) {
-		document.getElementById("extras.beer").checked = false;
-		document.getElementById("extras.water").checked = false;
-		document.getElementById("extras.coke").checked = false;
-		document.getElementById("extras.chips").checked = false;
-		for (var item in data.context.extras) {
-			var item_id = "extras." + data.context.extras[item];
-			document.getElementById(item_id).checked = true;
+	if (data && data.context) {
+		if (data.context.size) {
+			document.getElementById("size").value = data.context.size;
 		}
-    }
+		if (data.context.type) {
+			document.getElementById("type").value = data.context.type;
+		}
+		if (data.context.toppings) {
+			document.getElementById("toppings").value = data.context.toppings;
+		}
+		if (data.context.extras) {
+			document.getElementById("extras.beer").checked = false;
+			document.getElementById("extras.water").checked = false;
+			document.getElementById("extras.coke").checked = false;
+			document.getElementById("extras.chips").checked = false;
+			for (var item in data.context.extras) {
+				var item_id = "extras." + data.context.extras[item];
+				document.getElementById(item_id).checked = true;
+			}
+		}
 
-	if (data.context.system.dialog_stack[0].dialog_node == "slot_3_1492075289693") {
-		document.getElementById("type").focus();
-    }
+		if (data.context.system && data.context.system.dialog_stack) {
 
-	if (data.context.system.dialog_stack[0].dialog_node == "slot_7_1492075361973") {
-		document.getElementById("size").focus();
-    }
+			if (data.context.system.dialog_stack[0].dialog_node == "slot_3_1492075289693") {
+				var element = document.getElementById("type");
+				var alignWithTop = true;
+				element.scrollIntoView(alignWithTop);
+			}
 
-	if (data.context.system.dialog_stack[0].dialog_node == "slot_10_1492075405674") {
-		document.getElementById("toppings").focus();
-    }
+			if (data.context.system.dialog_stack[0].dialog_node == "slot_7_1492075361973") {
+				//document.getElementById("size").focus();
+				var element = document.getElementById("size");
+				alignWithTop = true;
+				element.scrollIntoView(alignWithTop);
+			}
 
-	if (data.context.system.dialog_stack[0].dialog_node == "slot_22_1492076887754") {
-		document.getElementById("extras").focus();
-    }
+			if (data.context.system.dialog_stack[0].dialog_node == "slot_10_1492075405674") {
+				var element = document.getElementById("toppings");
+				alignWithTop = true;
+				element.scrollIntoView(alignWithTop);
+			}
+
+			if (data.context.system.dialog_stack[0].dialog_node == "slot_22_1492076887754") {
+				var element = document.getElementById("extras");
+				alignWithTop = true;
+				element.scrollIntoView(alignWithTop);
+			}
+		}
+	}
 	
     if (data && !data.output.error) {
       // Check if message is handled by retrieve and rank and there is no message set
