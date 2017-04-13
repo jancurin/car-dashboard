@@ -33,6 +33,17 @@
 </head>
 
 <body>
+<form action="/action_page.php">
+<p>Pizza type: <input name="type" id="type" type="text" /><span style="color: #ff0000;"> *</span> <br />
+<br />Pizza size: <input name="size" id="size" type="text" /><span style="color: #ff0000;"> *</span> <br />
+<br />Additional toppings: <input name="toppings" id="toppings" type="text" /><br />
+<br />Extras:<br /><br /> <input name="extras" id="extras.beer" type="checkbox" value="beer" />beer&nbsp; 
+<input name="extras" id="extras.water" type="checkbox" value="water" />water&nbsp; 
+<input name="extras" id="extras.coke" type="checkbox" value="coke" />coke&nbsp; 
+<input name="extras" id="extras.chips" type="checkbox" value="chips" />chips&nbsp; 
+<br /> <br /> <span style="color: #ff0000;">* Mandatory fields</span></p>
+<p><br /> <input type="submit" value="Order" /></p>
+</form>
     <div id="dark-overlay" class="overlay"></div>
     <div id="clear-overlay" class="overlay"></div>
     <!--The main car dashboard SVG-->
